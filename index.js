@@ -54,7 +54,7 @@ const openNotepad = () => {
 let counter = 0
 
 let isPageFull = false
-    
+let lines =15    
 
 const fillNotepad = () => {
 
@@ -62,7 +62,7 @@ const fillNotepad = () => {
     counter++
     $("#fill").append($p)
 
-    if(counter >15){
+    if(counter >lines){
         isPageFull=true;
     }
     if(isPageFull){
@@ -74,12 +74,23 @@ const fillNotepad = () => {
     }
 }
 
-$(() => {
+const windowsMenu = () => {
+    $windowsContainer = $("<div>").attr("id","windows-container").addClass("windows")
+    $portfolioDiv = $("<div>").attr('id','portfolio-button').addClass("windows")
+    $resumeDiv = $("<div>").attr('id','resume-button').addClass("windows")
+    $weddingPhotography = $("<div>","wedding-photography-button").addClass("windows")
+    $windowsContainer.append($portfolioDiv, $resumeDiv, $weddingPhotography)
 
+    $("#main-content").append($windowsContainer)
+    $('#windows-container').hide()
+}
+
+$(() => {
+    windowsMenu()
     updateTime()
     setInterval(updateTime, 30000)
     let isNotepadOpen = false
-
+    let isWindowsOpen = false
     openNotepad()
 
     $('#notepad-icon').on("click", function () {
@@ -91,6 +102,18 @@ $(() => {
             $("#notepad-icon").removeClass("pressed")
             $('#notepad-container').hide()
             isNotepadOpen = false
+        }
+    })
+
+    $('#windows-icon').on("click", function () {
+        if (isWindowsOpen== false) {
+            $("#windows-icon").addClass("pressed")
+            $('#windows-container').show()
+            isWindowsOpen = true
+        } else {
+            $("#windows-icon").removeClass("pressed")
+            $('#windows-container').hide()
+            isWindowsOpen = false
         }
     })
 
@@ -117,4 +140,7 @@ $(() => {
         fillNotepad()
     })
 
+    if(window.matchMedia("(max-width: 1000px)").matches){
+        lines = 8
+    }
 })
