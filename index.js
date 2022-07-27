@@ -28,7 +28,7 @@ const updateTime = () => {
     let amPm = " AM"
     let date = dt.getMonth() + 1 + "/" + dt.getDate() + "/" + dt.getFullYear();
 
-    if (hours >= 12) {
+    if (hours > 12) {
         amPm = " PM"
         hours -= 12
     } else if (hours == 12) {
@@ -84,11 +84,26 @@ const windowsMenu = () => {
     $("#main-content").append($windowsContainer)
     $('#windows-container').hide()
 }
+    const imgArray = ["camera.jpg","cleanoffice.jpeg","flying.jpeg","gondolafive.jpg","gondolatwo.jpg","krew.jpeg","market.jpg","ramebackground.jpeg","seoraktop.jpeg","soju.jpeg","trolley.jpeg","vegas.jpeg","venicegondolacut.jpg","villacaletas.jpeg"]
+    let imgCounter = 0
+
+const changeBackground = () => {
+
+    if(imgCounter > imgArray.length-1){
+        imgCounter = 1
+    }
+    $('#main-content').css("background-image", `url('img/${imgArray[imgCounter]}')` )
+    console.log("Changing")
+    imgCounter++
+}
 
 $(() => {
     windowsMenu()
     updateTime()
+
     setInterval(updateTime, 30000)
+    setInterval(changeBackground, 10000)
+
     let isNotepadOpen = false
     let isWindowsOpen = false
     openNotepad()
