@@ -117,4 +117,8 @@ $(() => {
         fillNotepad()
     })
 
+    $(document).on("tap", function(e){
+        fillNotepad()
+    })
+
 })
