@@ -149,4 +149,10 @@ body {
         height:80%;
     }
 
+    #date-and-time {
+        width: 20%;
+        font-size: 4vh;
+        padding-right: 5%;
+    }
+
 }

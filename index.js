@@ -113,11 +113,7 @@ $(() => {
         $draggable = null;
     });
 
-    $(document).on("keypress", function (e) {
-        fillNotepad()
-    })
-
-    $(document).on("tap", function(){
+    $(document).on("touchstart keypress", function (e) {
         fillNotepad()
     })
 
