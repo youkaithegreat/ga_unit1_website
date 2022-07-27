@@ -117,7 +117,7 @@ $(() => {
         fillNotepad()
     })
 
-    $(document).on("tap", function(e){
+    $(document).on("tap", function(){
         fillNotepad()
     })
 
