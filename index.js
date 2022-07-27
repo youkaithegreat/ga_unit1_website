@@ -25,8 +25,7 @@ const updateTime = () => {
 
 const openNotepad = () => {
     let $resumeDiv = $('<div>').addClass('notepad').attr("id","notepad-container")
-    
-    $resumeDiv
+  
     $("#main-content").append($resumeDiv)
 }
 
@@ -52,7 +51,7 @@ $(() => {
         }
     });
 
-    $(document.body).on("mousedown", ".notepad", function (e) {
+    $(document.body).on("mousedown", "#notepad-container", function (e) {
         $dragging = $(e.target);
     });
 
