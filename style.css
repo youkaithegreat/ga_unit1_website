@@ -130,6 +130,8 @@ body {
 }
 
 #windows-container { 
+    display: flex;
+    flex-direction: column;
     height: 40%;
     width: 22%;
     opacity: 80%;
@@ -139,7 +141,30 @@ body {
     bottom: 4.5%;
 }
 
-@media only screen and (max-width: 1000px){
+.windows {
+    height: 20%;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+}
+
+.windows:hover {
+    cursor: pointer;
+}
+
+.windows:hover {
+    opacity: 50%;
+    background-color:darkblue;
+    color:white;
+}
+
+#pdf-resume {
+    width: 40%;
+    height: 60%;
+    margin-top:20%;
+    margin-left:20%;
+}
+@media only screen and (max-width: 800px){
 
     #navigation-container { 
         height: 20%;

@@ -75,11 +75,12 @@ const fillNotepad = () => {
 }
 
 const windowsMenu = () => {
-    $windowsContainer = $("<div>").attr("id","windows-container").addClass("windows")
-    $portfolioDiv = $("<div>").attr('id','portfolio-button').addClass("windows")
-    $resumeDiv = $("<div>").attr('id','resume-button').addClass("windows")
-    $weddingPhotography = $("<div>","wedding-photography-button").addClass("windows")
-    $windowsContainer.append($portfolioDiv, $resumeDiv, $weddingPhotography)
+    $windowsContainer = $("<div>").attr("id","windows-container")
+    $portfolioDiv = $("<div>").attr('id','portfolio-button').addClass("windows").text("Portfolio - Github")
+    $resumeDiv = $("<div>").attr('id','resume-button').addClass("windows").text("Resume - PDF")
+    $weddingPhotography = $("<div>").attr("id","wedding-photography-button").addClass("windows").text("Wedding Photography")
+    $linkedInButton = $("<div>").attr('id',"linkedIn-button").addClass("windows").text("LinkedIn")
+    $windowsContainer.append($portfolioDiv, $resumeDiv, $weddingPhotography, $linkedInButton)
 
     $("#main-content").append($windowsContainer)
     $('#windows-container').hide()
@@ -106,6 +107,7 @@ $(() => {
 
     let isNotepadOpen = false
     let isWindowsOpen = false
+    let isPDFOpen = false
     openNotepad()
 
     $('#notepad-icon').on("click", function () {
@@ -158,4 +160,28 @@ $(() => {
     if(window.matchMedia("(max-width: 1000px)").matches){
         lines = 8
     }
+
+    $("#wedding-photography-button").on("click",function(){
+        window.open("http://www.youkaicreations.com")
+    })
+
+    $("#resume-button").on("click",function(){
+        if(isPDFOpen==false){
+        $('#main-content').append($("<object data ='assets/KevinYangWebDevResumeDeprecated.pdf' id='pdf-resume' type='application/pdf'>"))
+        isPDFOpen=true    
+        }
+        else
+        {
+            $("object").hide()
+            isPDFOpen=false
+        }
+    })
+
+    $("#portfolio-button").on("click",function(){
+        window.open("http://www.github.com/youkaithegreat")
+    })
+
+    $("#linkedIn-button").on("click",function(){
+        window.open("https://www.linkedin.com/in/yangkevint/")
+    })
 })
