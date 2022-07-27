@@ -23,7 +23,41 @@ const updateTime = () => {
     $("#date-and-time").text(hours + ":" + minutes + amPm + " " +date)
 }
 
+const openNotepad = () => {
+    let $resumeDiv = $('<div>').addClass('notepad').attr("id","notepad-container")
+    
+    $resumeDiv
+    $("#main-content").append($resumeDiv)
+}
 
 $(() => {
-    setInterval(updateTime,1000)
+    
+    updateTime()
+    setInterval(updateTime,30000)
+
+    $('#navigation-container').on("click", function(){
+        console.log("click is working")
+        openNotepad()
+        $(this).off('click');
+    })
+
+    var $dragging = null;
+
+    $(document.body).on("mousemove", function(e) {
+        if ($dragging) {
+            $dragging.offset({
+                top: e.pageY,
+                left: e.pageX
+            });
+        }
+    });
+
+    $(document.body).on("mousedown", ".notepad", function (e) {
+        $dragging = $(e.target);
+    });
+
+    $(document.body).on("mouseup", function (e) {
+        $dragging = null;
+    });
+
 })
