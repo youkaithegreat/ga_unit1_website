@@ -1,0 +1,92 @@
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#main-content {
+    display:block;
+    position: relative;
+    background-color: black;
+    background-image: url("img/camera.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    z-index:-1;
+}
+
+#navigation-container { 
+    display:block;
+    position: absolute;
+    background-image: linear-gradient(to right, rgb(9, 0,15), black);
+    bottom: 0;
+    opacity: 90%;
+    width: 100%;
+    height: 4.5%;
+    z-index: 0;
+}
+
+#bottom-navigation {
+    display:block;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#date-and-time {
+    display:inline-block;
+    float: right;
+    text-align: center;
+    margin-right: 1%;
+    width: 5%;
+    height: 100%;
+    z-index: 3;
+    color: white;
+    font-size: 1vw;
+}
+
+#windows-icon {
+    display:inline-block flex;
+    float: left;
+    text-align: center;
+    width:5%;
+    height:100%;
+    z-index: 3;
+}
+
+#windows-icon-image {
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+    margin-left: 25%;
+    float: left;
+    object-fit:contain;
+}
+
+#notepad-icon {
+    display: inline-block flex;
+    float: left;
+    text-align: center;
+    width: 5%;
+    height:100%;
+    z-index: 3;
+}
+
+#notepad-icon-image {
+    width: 80;
+    height: 80%;
+    margin-top: 5%;
+    object-fit: contain;
+}
