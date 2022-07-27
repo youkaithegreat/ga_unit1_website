@@ -162,22 +162,30 @@ $(() => {
     }
 
     $("#wedding-photography-button").on("click",function(){
+        // let $iframe = $("<iframe>").attr("id","inside-browser")
+        // $("#main-content").append($iframe)
+
+        // $("#inside-browser").attr("src","http://www.youkaicreations.com")
         window.open("http://www.youkaicreations.com")
     })
 
     $("#resume-button").on("click",function(){
+        const $pdfDiv = $("<div>").attr("id",'pdf-div')
         if(isPDFOpen==false){
-        $('#main-content').append($("<object data ='assets/KevinYangWebDevResumeDeprecated.pdf' id='pdf-resume' type='application/pdf'>"))
+        $pdfDiv.append($("<object data ='assets/KevinYangWebDevResume2022.pdf' id='pdf-resume' type='application/pdf'>"))
+        $("#main-content").append($pdfDiv)
+
         isPDFOpen=true    
         }
         else
         {
-            $("object").hide()
+            $("#pdf-div").remove()
             isPDFOpen=false
         }
     })
 
     $("#portfolio-button").on("click",function(){
+
         window.open("http://www.github.com/youkaithegreat")
     })
 
