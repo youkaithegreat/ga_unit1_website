@@ -94,27 +94,26 @@ $(() => {
         }
     })
 
-    var $dragging = null;
+    let $draggable = null;
 
-    $(document.body).on("mousemove", function (e) {
-        if ($dragging) {
-            $dragging.offset({
+    $(document).on("mousemove", function (e) {
+        if ($draggable) {
+            $draggable.offset({
                 top: e.pageY,
                 left: e.pageX
             });
         }
     });
 
-    $(document.body).on("mousedown", "#notepad-container", function (e) {
-        $dragging = $('#notepad-container');
+    $(document).on("mousedown", "#notepad-container", function (e) {
+        $draggable = $('#notepad-container');
     });
 
-    $(document.body).on("mouseup", function (e) {
-        $dragging = null;
+    $(document).on("mouseup", function (e) {
+        $draggable = null;
     });
 
-    $(document.body).on("keypress", function (e) {
-        console.log("typetype type")
+    $(document).on("keypress", function (e) {
         fillNotepad()
     })
 
