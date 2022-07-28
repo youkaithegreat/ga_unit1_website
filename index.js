@@ -173,7 +173,7 @@ $(() => {
 
     $("#resume-button").on("click",function(){
 
-        if(window.matchMedia("(max-width:1000px").matches.matches){
+        if(window.matchMedia("(max-width:1000px").matches){
             window.open("https://youkaithegreat.github.io/ga_unit1_website/assets/KevinYangWebDevResume2022.pdf")
         }
         else{
