@@ -108,6 +108,8 @@ $(() => {
     let isNotepadOpen = false
     let isWindowsOpen = false
     let isPDFOpen = false
+    let isFroggerOpen = false
+
     openNotepad()
 
     $('#notepad-icon').on("click", function () {
@@ -190,6 +192,35 @@ $(() => {
     })
 
     $("#linkedIn-button").on("click",function(){
+
         window.open("https://www.linkedin.com/in/yangkevint/")
     })
+
+    $("#chrome-frogger").on("dblclick", function(){
+        if(isFroggerOpen==true){
+            $("iframe").remove()
+            isFroggerOpen=false
+        }else
+        {
+            $iframe = $("<iframe>").attr("src","http://youkaithegreat.github.io/ProjectThreeArcadeGame/")
+            $("#main-content").append($iframe)
+            isFroggerOpen=true
+        }
+    })
+
+    $(document).on("keydown",function(e){
+        if(e.key==="Escape"){
+            $("iframe").remove()
+            isFroggerOpen=false
+            $("#pdf-div").remove()
+            isPDFOpen=false
+            $("#notepad-container").hide()
+            isNotepadOpen=false
+            $("#windows-container").hide()
+            isWindowsOpen = false
+            $("#windows-icon").removeClass("pressed")
+            $("#notepad-icon").removeClass("pressed")
+        }
+    })
+
 })
