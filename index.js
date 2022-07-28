@@ -187,12 +187,10 @@ $(() => {
     })
 
     $("#portfolio-button").on("click",function(){
-
         window.open("http://www.github.com/youkaithegreat")
     })
 
     $("#linkedIn-button").on("click",function(){
-
         window.open("https://www.linkedin.com/in/yangkevint/")
     })
 
@@ -202,7 +200,7 @@ $(() => {
             isFroggerOpen=false
         }else
         {
-            $iframe = $("<iframe>").attr("src","http://youkaithegreat.github.io/ProjectThreeArcadeGame/")
+            $iframe = $("<iframe>").attr("src","https://youkaithegreat.github.io/ProjectThreeArcadeGame/")
             $("#main-content").append($iframe)
             isFroggerOpen=true
         }
