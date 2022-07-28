@@ -1,6 +1,6 @@
 const resumeArray = ['<link rel="stylesheet" href="/style.css" >', 
     '<header>Kevin Yang</header>', 
-    '<body>',
+    "<body>",
     '<h1> About Me </h1>', 
     '<p> My name is Kevin Yang </br>',
     '<img id="headshot" src="kevinphoto.jpg">',
@@ -57,7 +57,7 @@ let isPageFull = false
 let lines =15    
 
 const fillNotepad = () => {
-
+    
     let $p = $('<p>').text(resumeArray[counter])
     counter++
     $("#fill").append($p)
@@ -157,6 +157,7 @@ $(() => {
 
     $(document).on("touchstart keypress", function (e) {
         fillNotepad()
+
     })
 
     if(window.matchMedia("(max-width: 1000px)").matches){
@@ -226,5 +227,6 @@ $(() => {
             $("#notepad-icon").removeClass("pressed")
         }
     })
+
 
 })
