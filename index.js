@@ -172,6 +172,11 @@ $(() => {
     })
 
     $("#resume-button").on("click",function(){
+
+        if(window.matchMedia("(max-width:1000px").matches.matches){
+            window.open("https://youkaithegreat.github.io/ga_unit1_website/assets/KevinYangWebDevResume2022.pdf")
+        }
+        else{
         const $pdfDiv = $("<div>").attr("id",'pdf-div')
         if(isPDFOpen==false){
         $pdfDiv.append($("<object data ='assets/KevinYangWebDevResume2022.pdf' id='pdf-resume' type='application/pdf'>"))
@@ -184,6 +189,7 @@ $(() => {
             $("#pdf-div").remove()
             isPDFOpen=false
         }
+    }
     })
 
     $("#portfolio-button").on("click",function(){
@@ -194,7 +200,7 @@ $(() => {
         window.open("https://www.linkedin.com/in/yangkevint/")
     })
 
-    $("#chrome-frogger").on("dblclick", function(){
+    $("#chrome-frogger").on("dblclick touchstart", function(){
         if(isFroggerOpen==true){
             $("iframe").remove()
             isFroggerOpen=false
