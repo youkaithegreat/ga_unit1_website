@@ -96,13 +96,7 @@ const imgArray = ["background (1).jpg", "background (2).jpg",
 let imgCounter = 0
 
 const changeBackground = () => {
-
-    if (imgCounter > imgArray.length - 1) {
-        imgCounter = 1
-    }
-    $('#main-content').css("background-image", `url('img/${imgArray[imgCounter]}')`)
-    console.log("Changing")
-    imgCounter++
+    $('#main-content').css("background-image", `url('img/${imgArray[Math.floor(Math.random()*imgArray.length)]}')`)
 }
 
 $(() => {
