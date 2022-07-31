@@ -1,7 +1,7 @@
-const resumeArray = ['<link rel="stylesheet" href="/style.css" >', 
-    '<header>Kevin Yang</header>', 
+const resumeArray = ['<link rel="stylesheet" href="/style.css" >',
+    '&lt;header&gt;Kevin Yang</header>',
     "<body>",
-    '<h1> About Me </h1>', 
+    '<h1> About Me </h1>',
     '<p> My name is Kevin Yang </br>',
     '<img id="headshot" src="kevinphoto.jpg">',
     "I'm a software developer, wedding photographer and an (unpublished) author. <br>",
@@ -54,46 +54,53 @@ const openNotepad = () => {
 let counter = 0
 
 let isPageFull = false
-let lines =15    
+let lines = 15
+
 
 const fillNotepad = () => {
-    
-    let $p = $('<p>').text(resumeArray[counter])
-    counter++
-    $("#fill").append($p)
 
-    if(counter >lines){
-        isPageFull=true;
+    let $code = $('<code>').text(resumeArray[counter])
+    let $br = $('<br>')
+    counter++
+    $("#fill").append($code, $br)
+
+    syntaxHighlights()
+
+    if (counter > lines) {
+        isPageFull = true;
     }
-    if(isPageFull){
+    if (isPageFull) {
         $("#fill").children().eq(0).remove()
     }
 
-    if(counter > resumeArray.length){
+    if (counter > resumeArray.length) {
         counter = 0
     }
+
 }
 
 const windowsMenu = () => {
-    $windowsContainer = $("<div>").attr("id","windows-container")
-    $portfolioDiv = $("<div>").attr('id','portfolio-button').addClass("windows").text("Portfolio - Github")
-    $resumeDiv = $("<div>").attr('id','resume-button').addClass("windows").text("Resume - PDF")
-    $weddingPhotography = $("<div>").attr("id","wedding-photography-button").addClass("windows").text("Wedding Photography")
-    $linkedInButton = $("<div>").attr('id',"linkedIn-button").addClass("windows").text("LinkedIn")
+    $windowsContainer = $("<div>").attr("id", "windows-container")
+    $portfolioDiv = $("<div>").attr('id', 'portfolio-button').addClass("windows").text("Portfolio - Github")
+    $resumeDiv = $("<div>").attr('id', 'resume-button').addClass("windows").text("Resume - PDF")
+    $weddingPhotography = $("<div>").attr("id", "wedding-photography-button").addClass("windows").text("Wedding Photography")
+    $linkedInButton = $("<div>").attr('id', "linkedIn-button").addClass("windows").text("LinkedIn")
     $windowsContainer.append($portfolioDiv, $resumeDiv, $weddingPhotography, $linkedInButton)
 
     $("#main-content").append($windowsContainer)
     $('#windows-container').hide()
 }
-    const imgArray = ["camera.jpg","cleanoffice.jpeg","flying.jpeg","gondolafive.jpg","gondolatwo.jpg","krew.jpeg","market.jpg","ramebackground.jpeg","seoraktop.jpeg","soju.jpeg","trolley.jpeg","vegas.jpeg","venicegondolacut.jpg","villacaletas.jpeg"]
-    let imgCounter = 0
+const imgArray = ["background (1).jpg", "background (2).jpg",
+"background (3).jpg", "background (4).jpg", "background (5).jpg", "background (6).jpg", "background (7).jpg", "background (8).jpg", "background (9).jpg", "background (10).jpg", "background (11).jpg", "background (12).jpg", "background (13).jpg", "background (14).jpg", "background (15).jpg", "background (16).jpg", "background (17).jpg", "background (18).jpg",
+"background (19).jpg", "background (20).jpg", "background (21).jpg", "background (22).jpg", "background (23).jpg", "background (24).jpg", "background (25).jpg", "background (26).jpg", "background (27).jpg","camera.jpg", "cleanoffice.jpeg", "flying.jpeg", "gondolafive.jpg", "gondolatwo.jpg", "krew.jpeg", "market.jpg", "ramebackground.jpeg", "seoraktop.jpeg", "soju.jpeg", "trolley.jpeg", "vegas.jpeg", "venicegondolacut.jpg", "villacaletas.jpeg"]
+let imgCounter = 0
 
 const changeBackground = () => {
 
-    if(imgCounter > imgArray.length-1){
+    if (imgCounter > imgArray.length - 1) {
         imgCounter = 1
     }
-    $('#main-content').css("background-image", `url('img/${imgArray[imgCounter]}')` )
+    $('#main-content').css("background-image", `url('img/${imgArray[imgCounter]}')`)
     console.log("Changing")
     imgCounter++
 }
@@ -103,7 +110,7 @@ $(() => {
     updateTime()
 
     setInterval(updateTime, 30000)
-    setInterval(changeBackground, 10000)
+    setInterval(changeBackground, 5000)
 
     let isNotepadOpen = false
     let isWindowsOpen = false
@@ -125,7 +132,7 @@ $(() => {
     })
 
     $('#windows-icon').on("click", function () {
-        if (isWindowsOpen== false) {
+        if (isWindowsOpen == false) {
             $("#windows-icon").addClass("pressed")
             $('#windows-container').show()
             isWindowsOpen = true
@@ -160,11 +167,11 @@ $(() => {
 
     })
 
-    if(window.matchMedia("(max-width: 1000px)").matches){
+    if (window.matchMedia("(max-width: 1000px)").matches) {
         lines = 8
     }
 
-    $("#wedding-photography-button").on("click",function(){
+    $("#wedding-photography-button").on("click", function () {
         // let $iframe = $("<iframe>").attr("id","inside-browser")
         // $("#main-content").append($iframe)
 
@@ -172,55 +179,53 @@ $(() => {
         window.open("http://www.youkaicreations.com")
     })
 
-    $("#resume-button").on("click",function(){
+    $("#resume-button").on("click", function () {
 
-        if(window.matchMedia("(max-width:1000px").matches){
+        if (window.matchMedia("(max-width:1000px").matches) {
             window.open("https://youkaithegreat.github.io/ga_unit1_website/assets/KevinYangWebDevResume2022.pdf")
         }
-        else{
-        const $pdfDiv = $("<div>").attr("id",'pdf-div')
-        if(isPDFOpen==false){
-        $pdfDiv.append($("<object data ='assets/KevinYangWebDevResume2022.pdf' id='pdf-resume' type='application/pdf'>"))
-        $("#main-content").append($pdfDiv)
+        else {
+            const $pdfDiv = $("<div>").attr("id", 'pdf-div')
+            if (isPDFOpen == false) {
+                $pdfDiv.append($("<object data ='assets/KevinYangWebDevResume2022.pdf' id='pdf-resume' type='application/pdf'>"))
+                $("#main-content").append($pdfDiv)
 
-        isPDFOpen=true    
+                isPDFOpen = true
+            }
+            else {
+                $("#pdf-div").remove()
+                isPDFOpen = false
+            }
         }
-        else
-        {
-            $("#pdf-div").remove()
-            isPDFOpen=false
-        }
-    }
     })
 
-    $("#portfolio-button").on("click",function(){
+    $("#portfolio-button").on("click", function () {
         window.open("http://www.github.com/youkaithegreat")
     })
 
-    $("#linkedIn-button").on("click",function(){
+    $("#linkedIn-button").on("click", function () {
         window.open("https://www.linkedin.com/in/yangkevint/")
     })
 
-    $("#chrome-frogger").on("dblclick touchstart", function(){
-        if(isFroggerOpen==true){
+    $("#chrome-frogger").on("dblclick touchstart", function () {
+        if (isFroggerOpen == true) {
             $("iframe").remove()
-            isFroggerOpen=false
-        }else
-        {
-            $iframe = $("<iframe>").attr("src","https://youkaithegreat.github.io/ProjectThreeArcadeGame/")
+            isFroggerOpen = false
+        } else {
+            $iframe = $("<iframe>").attr("src", "https://youkaithegreat.github.io/ProjectThreeArcadeGame/")
             $("#main-content").append($iframe)
-            isFroggerOpen=true
+            isFroggerOpen = true
         }
     })
 
-    $(document).on("keydown",function(e){
-        if(e.key==="Escape"){
+    $(document).on("keydown", function (e) {
+        if (e.key === "Escape") {
             $("iframe").remove()
-            isFroggerOpen=false
+            isFroggerOpen = false
             $("#pdf-div").remove()
-            isPDFOpen=false
+            isPDFOpen = false
             $("#notepad-container").hide()
-            isNotepadOpen=false
+            isNotepadOpen = false
             $("#windows-container").hide()
             isWindowsOpen = false
             $("#windows-icon").removeClass("pressed")

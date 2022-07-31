@@ -210,10 +210,15 @@ iframe {
     text-shadow: 1px 1px 1px darkgrey;
 }
 
-.red {
-    color: red;
+.code-h1 {
+    color: orange;
+    font-weight: bold;
 }
 
+.code-br {
+    color: red;
+    font-weight: bold;
+}
 @media only screen and (max-width: 800px){
 
     #navigation-container { 
