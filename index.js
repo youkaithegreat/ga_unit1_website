@@ -20,6 +20,7 @@ const resumeArray = ['<link rel="stylesheet" href="/style.css" >',
     '</p>',
     '</body>', '<!-- Also, warning "Wedding Photographer" takes you somewhere else and you can only come back with back button.-->']
 
+
 const updateTime = () => {
 
     let dt = new Date();
@@ -52,7 +53,6 @@ const openNotepad = () => {
 }
 
 let counter = 0
-
 let isPageFull = false
 let lines = 15
 
@@ -110,6 +110,7 @@ $(() => {
     let isWindowsOpen = false
     let isPDFOpen = false
     let isFroggerOpen = false
+    let isCardsOpen = false
 
     openNotepad()
 
@@ -206,15 +207,26 @@ $(() => {
             $("iframe").remove()
             isFroggerOpen = false
         } else {
-            $iframe = $("<iframe>").attr("src", "https://youkaithegreat.github.io/ProjectThreeArcadeGame/")
+            $iframe = $("<iframe>").attr("src", "https://youkaithegreat.github.io/ProjectThreeArcadeGame/").attr("id","froggerFrame")
             $("#main-content").append($iframe)
             isFroggerOpen = true
         }
     })
 
+    $("#chrome-cards").on("dblclick touchstart", function(){
+        if (isCardsOpen == true) {
+            $("iframe").remove()
+            isCardsOpen = false
+        } else {
+            $iframe = $("<iframe>").attr("src", "cards.html").attr("id","cardFrame")
+            $("#main-content").append($iframe)
+            isCardsOpen = true
+        }
+    })
+
     $(document).on("keydown", function (e) {
         if (e.key === "Escape") {
-            $("iframe").remove()
+            $("#froggerFrame").remove()
             isFroggerOpen = false
             $("#pdf-div").remove()
             isPDFOpen = false
@@ -222,6 +234,9 @@ $(() => {
             isNotepadOpen = false
             $("#windows-container").hide()
             isWindowsOpen = false
+            $("#cardFrame").remove()
+            isCardsOpen=false
+
             $("#windows-icon").removeClass("pressed")
             $("#notepad-icon").removeClass("pressed")
         }
