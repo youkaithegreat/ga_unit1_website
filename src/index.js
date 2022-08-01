@@ -153,6 +153,14 @@ $(() => {
         $draggable = $('#notepad-container');
     });
 
+    $(document).on("mousedown", "#chrome-frogger", function (e) {
+        $draggable = $('#chrome-frogger');
+    });
+
+    $(document).on("mousedown", "#chrome-cards", function (e) {
+        $draggable = $('#chrome-cards');
+    });
+
     $(document).on("mouseup", function (e) {
         $draggable = null;
     });
