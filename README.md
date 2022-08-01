@@ -1,8 +1,9 @@
 # General Assembly Unit 1 Website
 
-This project was designed and created for Project 1 for General Assembly Unit 1. 
+### This project was designed and created for Project 1 for General Assembly Unit 1. 
+Portfolio website simulating a Windows 10 GUI with a notepad and some Chrome pop up links. 
 
-The project had these minimum specifications: 
+#### The project had these minimum specifications: 
 + Built with HTML, CSS, JavaScript and jQuery
 + Hosted with Netlify or Github Pages
 + Commits to Github every day
@@ -25,35 +26,31 @@ The project had these minimum specifications:
         + Escape key closes all windows 
         + Card shuffle and deal which are utilizing own JS library hosted on Amazon Web Services CloudFront (https://github.com/youkaithegreat/PlayingCardLibrary)
         + **The frogger game that opens up is an old project that I included**
-    
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Download the Zip from Github and open index.html and voila!
 
-```bash
-pip install foobar
-```
+## Live Sites
+**Netlify:** https://zingy-conkies-dc2149.netlify.app/
+**Github Pages:** https://youkaithegreat.github.io/ga_unit1_website/
 
-## Usage
 
-```python
-import foobar
+## Notes/Thoughts
+This project was a bit of a challenge for me as I've created quite a few personal websites and portfolio websites in the past. 
+I wanted to do something unique, so this time I sought out to recreate a Windows 10 GUI and see if I could make it responsive as well. 
+Thinking of the scope of the project and our inability to use external libraries, I originally wanted to create a more specific syntax highlighter to highlight syntax.
+However, I found that with the rudimentary way that I was implementing it, it wouldn't function well with jQuery and was slowing the website down quite considerably over time.
+Originally, I had planned on putting Syntax Highlighter in a Library and pushing it to CloudFront, thus creating my own "library". However, this proved to be too time consuming and difficult. 
+I then created Playing Card Library as a result of that. 
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+## Sources 
+Intial Readme taken from https://www.makeareadme.com/
+README CheatSheet  https://www.markdownguide.org/basic-syntax/
+Playing Card Library https://github.com/youkaithegreat/PlayingCardLibrary (For Card Image Sources, Refer to Playing Card Library)
+Frogger Game https://github.com/youkaithegreat/ProjectThreeArcadeGame
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+This project may not be used for any other purpose. 
+Images found in the img directory CAN NOT be used for any other purpose. The copyright and licensing belong to www.youkaicreations.com 
+DO NOT use the images for any other purpose or advertising or risk legal action.
