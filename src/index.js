@@ -218,7 +218,7 @@ $(() => {
             $("iframe").remove()
             isCardsOpen = false
         } else {
-            $iframe = $("<iframe>").attr("src", "cards.html").attr("id","cardFrame")
+            $iframe = $("<iframe>").attr("src", "src/cards.html").attr("id","cardFrame")
             $("#main-content").append($iframe)
             isCardsOpen = true
         }

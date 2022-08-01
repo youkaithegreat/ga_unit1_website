@@ -18,7 +18,7 @@ body {
     display:block;
     position: relative;
     background-color: black;
-    background-image: url("img/camera.jpg");
+    background-image: url("../img/camera.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -99,7 +99,7 @@ body {
     margin-left: 30%;
     padding-bottom: 5%;
     position: absolute;
-    background-image: url("img/kevintyang.png");
+    background-image: url("../img/kevintyang.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 60%;
